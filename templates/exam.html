@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .exam-container {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .question label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="exam-container">
+        <h2>Online Exam</h2>
+        <form action="{{ url_for('submit_exam') }}" method="POST">
+            <!-- Question 1 -->
+            <div class="question">
+                <label for="q1">1. What is the capital of France?</label>
+                <input type="radio" name="q1" value="Paris" id="q1_1"> Paris
+                <input type="radio" name="q1" value="London" id="q1_2"> London
+                <input type="radio" name="q1" value="Berlin" id="q1_3"> Berlin
+                <input type="radio" name="q1" value="Rome" id="q1_4"> Rome
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <label for="q2">2. Which language is used for web development?</label>
+                <input type="radio" name="q2" value="Python" id="q2_1"> Python
+                <input type="radio" name="q2" value="JavaScript" id="q2_2"> JavaScript
+                <input type="radio" name="q2" value="Java" id="q2_3"> Java
+                <input type="radio" name="q2" value="C++" id="q2_4"> C++
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <label for="q3">3. What does HTML stand for?</label>
+                <input type="radio" name="q3" value="HyperText Markup Language" id="q3_1"> HyperText Markup Language
+                <input type="radio" name="q3" value="HyperTool Markup Language" id="q3_2"> HyperTool Markup Language
+                <input type="radio" name="q3" value="HomeText Markup Language" id="q3_3"> HomeText Markup Language
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <label for="q4">4. What is the powerhouse of the cell?</label>
+                <input type="radio" name="q4" value="Mitochondria" id="q4_1"> Mitochondria
+                <input type="radio" name="q4" value="Nucleus" id="q4_2"> Nucleus
+                <input type="radio" name="q4" value="Ribosomes" id="q4_3"> Ribosomes
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <label for="q5">5. What is the boiling point of water?</label>
+                <input type="radio" name="q5" value="100°C" id="q5_1"> 100°C
+                <input type="radio" name="q5" value="90°C" id="q5_2"> 90°C
+                <input type="radio" name="q5" value="110°C" id="q5_3"> 110°C
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <label for="q6">6. Who developed the theory of relativity?</label>
+                <input type="radio" name="q6" value="Isaac Newton" id="q6_1"> Isaac Newton
+                <input type="radio" name="q6" value="Albert Einstein" id="q6_2"> Albert Einstein
+                <input type="radio" name="q6" value="Niels Bohr" id="q6_3"> Niels Bohr
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <label for="q7">7. What is the largest planet in our solar system?</label>
+                <input type="radio" name="q7" value="Jupiter" id="q7_1"> Jupiter
+                <input type="radio" name="q7" value="Earth" id="q7_2"> Earth
+                <input type="radio" name="q7" value="Mars" id="q7_3"> Mars
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <label for="q8">8. Which element is represented by the symbol 'O'?</label>
+                <input type="radio" name="q8" value="Oxygen" id="q8_1"> Oxygen
+                <input type="radio" name="q8" value="Osmium" id="q8_2"> Osmium
+                <input type="radio" name="q8" value="Ozone" id="q8_3"> Ozone
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <label for="q9">9. Which company developed the Windows operating system?</label>
+                <input type="radio" name="q9" value="Microsoft" id="q9_1"> Microsoft
+                <input type="radio" name="q9" value="Apple" id="q9_2"> Apple
+                <input type="radio" name="q9" value="IBM" id="q9_3"> IBM
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <label for="q10">10. What is the speed of light?</label>
+                <input type="radio" name="q10" value="299,792 km/s" id="q10_1"> 299,792 km/s
+                <input type="radio" name="q10" value="150,000 km/s" id="q10_2"> 150,000 km/s
+                <input type="radio" name="q10" value="350,000 km/s" id="q10_3"> 350,000 km/s
+            </div>
+
+            <!-- Submit button -->
+            <div class="submit-btn">
+                <button type="submit">Submit Exam</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

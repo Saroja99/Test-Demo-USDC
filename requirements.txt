@@ -1,0 +1,13 @@
+Flask==2.2.3
+torch==2.5.1
+opencv-python==4.8.0.74
+numpy==1.24.3
+pandas==1.5.3
+email-validator
+Werkzeug==2.2.2
+requests
+Pillow
+flask-mail==0.9.1
+opencv-python-headless==4.8.0.74
+
+
