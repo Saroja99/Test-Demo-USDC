@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .dashboard-container {
+            width: 450px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h2 { color: #333; }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button { background: #ff758c; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <h2>Welcome to Your Dashboard</h2>
+    <label for="examDropdown">Select Exam:</label>
+    <select id="examDropdown">
+        <option value="">-- Select an Exam --</option>
+        <option value="python">Python Programming</option>
+        <option value="data">Data Structure</option>
+        <option value="web">Web Technology</option>
+    </select>
+    <button onclick="takeExam()">Take Exam</button>
+</div>
+
+<script>
+    function takeExam() {
+        var examDropdown = document.getElementById("examDropdown");
+        if (examDropdown.value === "") {
+            alert("Please select an exam first!");
+            return;
+        }
+        window.location.href = "/exam";
+    }
+</script>
+
+</body>
+</html>
